@@ -12,7 +12,7 @@ import java.time.Period;
  *
  * @author User1
  */
-public class Employee2 {
+public abstract class Employee2 {
     private String firstName, lastName;
     private int socialInsuranceNumber;
     private LocalDate dateOfBirth;
@@ -43,5 +43,31 @@ public class Employee2 {
         LocalDate today = LocalDate.now();
         
         int age = Period.between(dob, today).getYears();
+        
+        if (age >= 15 && age <= 90) // valid employee dob
+            this.dateOfBirth = dob;
+        else
+            throw new IllegalArgumentException("the employee must be between 15-90");
     }//end of setBirthDay
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getSocialInsuranceNumber() {
+        return socialInsuranceNumber;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+
+    public abstract PayCheque getPayCheque();
+  
 }
+

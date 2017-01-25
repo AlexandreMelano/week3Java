@@ -48,6 +48,13 @@ public class PayCheque {
         return chequeNumber;
     }
 
-    
+    /*
+    this will show who the cheque is made out to, the date, cheque number 
+    and the amount
+    */
+    public String toString()
+    {
+        return String.format("Cheque #%d, issued to %s, for the amount of $%.2f",getChequeNumber(),getEmployeeName(),getAmount());
+    }//end of toString
     
 }//end of class
